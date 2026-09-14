@@ -1,8 +1,10 @@
-
+import Chai from "./chai"
 function App() {
   return (
- <h1> helllloo</h1>
-  );
+
+<div>
+  <Chai/>
+</div>  );
 }
 
 export default App;
