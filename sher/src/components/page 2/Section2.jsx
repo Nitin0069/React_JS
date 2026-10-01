@@ -1,7 +1,10 @@
-function Section2() {
+import React from 'react'
+
+function Section2 () {
     return (
-        <div className="h-screen w-full bg-blue-900">
-            Section 2
+        <div className = 'h-screen w-full bg-blue-900'>
+Section 2
+
         </div>
     )
 }
