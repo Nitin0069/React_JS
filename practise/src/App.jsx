@@ -1,26 +1,22 @@
-import {useState} from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react'
 
-function App() {
-let [counter , setCounter] = useState(15)
-const  chal = () => {
-  console.log(counter)
-  counter = counter + 1
-  setCounter(counter)
-  console.log(counter);
+const App = () => {
 
+    const [count, setCount] = useState(0)
 
-}
+    useEffect(() => {
+        console.log("Count changed")
+    }, [count])
 
-  return (
-    <>
-      <h1> hi </h1>
-      <button onClick = {chal}> counter {counter} </button>
-    </>
-  )
+    return (
+        <div>
+            <h1>{count}</h1>
+
+            <button onClick={() => setCount(count + 1)}>
+                Increase
+            </button>
+        </div>
+    )
 }
 
 export default App
