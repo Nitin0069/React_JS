@@ -1,22 +1,14 @@
 import React from 'react'
-import {Route, Routes} from 'react-router-dom'
-import Home from './pages/Home'
-import About from './pages/About'
-import Contact from './pages/Contact'
-import Navbar from './Components/Navbar'
+
 const App = () => {
     return (
-        <div>
-          <h3> sheriyans</h3>
-          <Navbar />
-          
-<Routes>
-  <Route path = '/' element = {<Home /> } /> 
-  <Route path = '/about' element = {<About/>} />
-  <Route path = '/contact' element = {<Contact/>}  />
-</Routes>
+        <div className='h-screen bg-black text-white'>
+
+
+<h1> hii</h1>
         </div>
-    )
+     )
 }
 
 export default App
+ 
