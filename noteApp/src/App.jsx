@@ -1,12 +1,16 @@
 import React from 'react'
 import UserContextProvider from './Context/UserContextProvider'
-const App = () => {
-  return (
+import Profile from './Profile'
 
-<UserContextProvider>
-  <h1> hii</h1>
-</UserContextProvider>
-  )
+const App = () => {
+
+    return (
+        <UserContextProvider>
+
+            <Profile />
+
+        </UserContextProvider>
+    )
 }
 
 export default App
