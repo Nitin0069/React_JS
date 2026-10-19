@@ -1,10 +1,17 @@
 import React from 'react'
 import { createContext } from 'react'
 
-const ThemeDataContext = createContext()
-const ThemeContex = () => {
+ export const ThemeDataContext = createContext()
+
+const ThemeContex = (props) => {
   return (
-    <div>ThemeContex</div>
+    <div>
+<ThemeDataContext.Provider  value = 'sarthak'>
+    {props.children}
+</ThemeDataContext.Provider>
+
+
+    </div>
   )
 }
 
