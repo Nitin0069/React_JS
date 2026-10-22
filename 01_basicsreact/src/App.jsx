@@ -1,16 +1,31 @@
 
+import { useState, useEffect } from 'react';
 
 function App() {
-    return (
-    
-     
-        <div>
-          <h1>Get started</h1>
-          <h1> yoo</h1>
-          
+  const [count, setCount] = useState(0);
+  const [running, setRunning] = useState(true);
 
-         </div> 
-    )
-  }
+  useEffect(() => {
+    if (!running) return;
 
-export default App
+    const timer = setInterval(() => {
+      setCount(prevCount => prevCount + 1);
+    }, 1000);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, [running]);
+
+  return (
+    <div>
+      <h1>Timer: {count}</h1>
+
+      <button onClick={() => setRunning(!running)}>
+        {running ? 'Stop Timer' : 'Start Timer'}
+      </button>
+    </div>
+  );
+}
+
+export default App;
