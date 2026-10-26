@@ -1,22 +1,19 @@
-import { useState, useEffect } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-const App = () => {
+import Home from './components/Home';
+import About from './components/About';
 
-    const [count, setCount] = useState(0)
+function App() {
+  return (
+    <BrowserRouter>
+      
 
-    useEffect(() => {
-        console.log("Count changed")
-    }, [count])
-
-    return (
-        <div>
-            <h1>{count}</h1>
-
-            <button onClick={() => setCount(count + 1)}>
-                Increase
-            </button>
-        </div>
-    )
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

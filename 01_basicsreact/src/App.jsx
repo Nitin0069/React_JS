@@ -1,29 +1,31 @@
+import React, { useState, useCallback, memo } from 'react';
 
-import { useState, useEffect } from 'react';
+const Child = memo(function Child({ handleClick }) {
+  console.log("Child rendered");
+
+  return (
+    <button onClick={handleClick}>
+      Click Child
+    </button>
+  );
+});
 
 function App() {
   const [count, setCount] = useState(0);
-  const [running, setRunning] = useState(true);
 
-  useEffect(() => {
-    if (!running) return;
-
-    const timer = setInterval(() => {
-      setCount(prevCount => prevCount + 1);
-    }, 1000);
-
-    return () => {
-      clearInterval(timer);
-    };
-  }, [running]);
+  const handleClick = useCallback(() => {
+    console.log("Child button clicked");
+  }, []);
 
   return (
     <div>
-      <h1>Timer: {count}</h1>
+      <h1>Count: {count}</h1>
 
-      <button onClick={() => setRunning(!running)}>
-        {running ? 'Stop Timer' : 'Start Timer'}
+      <button onClick={() => setCount(count + 1)}>
+        Increase Count
       </button>
+
+      <Child handleClick={handleClick} />
     </div>
   );
 }
